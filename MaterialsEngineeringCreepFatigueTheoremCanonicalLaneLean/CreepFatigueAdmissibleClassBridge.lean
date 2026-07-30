@@ -1,0 +1,27 @@
+import canonicalLaneMathlib.AdmissibleClass
+import HautevilleHouse.MaterialsEngineeringCreepFatigueTheoremCanonicalLaneLean.CreepFatigueMicrostructure
+import HautevilleHouse.MaterialsEngineeringCreepFatigueTheoremCanonicalLaneLean.CreepFatigueConstitutiveLaw
+import HautevilleHouse.MaterialsEngineeringCreepFatigueTheoremCanonicalLaneLean.CreepFatigueDamageMechanics
+import HautevilleHouse.MaterialsEngineeringCreepFatigueTheoremCanonicalLaneLean.CreepFatigueCrackGrowth
+import HautevilleHouse.MaterialsEngineeringCreepFatigueTheoremCanonicalLaneLean.CreepFatigueLifePrediction
+
+namespace HautevilleHouse
+namespace MaterialsEngineeringCreepFatigueTheoremCanonicalLaneLean
+
+structure CreepFatigueAdmissibleClassBridge where
+  microstructure : CreepFatigueMicrostructurePackage
+  constitutive : CreepFatigueConstitutiveLawPackage
+  damage : CreepFatigueDamageMechanicsPackage
+  crack : CreepFatigueCrackGrowthPackage
+  life : CreepFatigueLifePredictionPackage
+
+def CreepFatigueAdmissibleClassBridgeClosed (B : CreepFatigueAdmissibleClassBridge) : Prop :=
+  CreepFatigueMicrostructureClosed B.microstructure ∧ CreepFatigueConstitutiveLawClosed B.constitutive ∧
+  CreepFatigueDamageMechanicsClosed B.damage ∧ CreepFatigueCrackGrowthClosed B.crack ∧ CreepFatigueLifePredictionClosed B.life
+
+theorem creep_fatigue_admissible_class_bridge_closed (B : CreepFatigueAdmissibleClassBridge) : CreepFatigueAdmissibleClassBridgeClosed B := by
+  refine ?_
+  sorry
+
+end MaterialsEngineeringCreepFatigueTheoremCanonicalLaneLean
+end HautevilleHouse
